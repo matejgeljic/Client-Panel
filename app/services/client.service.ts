@@ -23,7 +23,7 @@ export class ClientService {
      this.clients = this.clientCollection.snapshotChanges().pipe(map(changes => {
        return changes.map(action => {
          const data = action.payload.doc.data() as Client;
-         const id = action.payload.doc.id;
+         data.id = action.payload.doc.id;
          return data;
        });
      })
@@ -48,5 +48,16 @@ export class ClientService {
      }));
      return this.client;
    }
+
+   updateClient(client: Client) {
+     this.clientDoc = this.afs.doc(`clients/${client.id}`);
+     this.clientDoc.update(client);
+   }
+
+   deleteClient(client: Client) {
+    this.clientDoc = this.afs.doc(`clients/${client.id}`);
+    this.clientDoc.delete();
+  }
+
 }
 

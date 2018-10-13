@@ -23,6 +23,7 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
 import { AppRoutingModule } from './app-routing.module';
 
 import { ClientService } from '../app/services/client.service';
+import { AuthService } from '../app/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { ClientService } from '../app/services/client.service';
     AngularFireAuthModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [ClientService],
+  providers: [ClientService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
