@@ -24,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ClientService } from '../app/services/client.service';
 import { AuthService } from '../app/services/auth.service';
+import { SettingsService } from '../app/services/settings.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { AuthService } from '../app/services/auth.service';
     AngularFireAuthModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [ClientService, AuthService],
+  providers: [ClientService, AuthService, SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
