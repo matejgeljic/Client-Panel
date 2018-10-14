@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li *ngIf="isLoggedIn" class="nav-item">
           <a routerLink="/" class="nav-link">Dashboard</a>
         </li>
       </ul>
@@ -22,10 +22,10 @@
             <a href="#" class="nav-link">{{loggedInUser}}</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">
-            <a routerLink="/settings" class="nav-link">Settings</a>
+            <a routerLink="/settings" class="nav-link"><i class="fa fa-gear"></i> Settings</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">
-            <a href="#" (click)="onLogoutClick()" class="nav-link">Logout</a>
+            <a href="#" (click)="onLogoutClick()" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a>
         </li>
       </ul>
     </div>
